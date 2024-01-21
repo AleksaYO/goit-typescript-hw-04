@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 
 type requestType = {
   isRequestInProgress: boolean;
-  requestStep: string;
+  requestStep: "start" | "pending" | "finished" | "idle";
 };
 
 const initialState: requestType = {
