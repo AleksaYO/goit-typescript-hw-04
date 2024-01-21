@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { FC, useEffect, useRef } from "react";
 
 // Опишіть Props
 
@@ -13,7 +13,7 @@ type optionsType = {
   root: Element | null;
 };
 
-export function Observer({ children, onContentEndVisible }: Props) {
+export const Observer: FC<Props> = ({ children, onContentEndVisible }) => {
   // Вкажіть правильний тип для useRef зверніть увагу, в який DOM елемент ми його передаємо
   const endContentRef = useRef<HTMLDivElement>(null);
 
@@ -49,4 +49,4 @@ export function Observer({ children, onContentEndVisible }: Props) {
       <div ref={endContentRef} />
     </div>
   );
-}
+};
