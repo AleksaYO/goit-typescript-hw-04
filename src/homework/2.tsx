@@ -5,15 +5,20 @@ type requestType = {
   requestStep: "start" | "pending" | "finished" | "idle";
 };
 
+type actionType = {
+  type:
+    | "START_REQUEST"
+    | "PENDING_REQUEST"
+    | "FINISH_REQUEST"
+    | "RESET_REQUEST";
+};
+
 const initialState: requestType = {
   isRequestInProgress: false,
   requestStep: "idle",
 };
 
-function requestReducer(
-  state: requestType,
-  action: { type: string }
-): requestType {
+function requestReducer(state: requestType, action: actionType): requestType {
   switch (action.type) {
     case "START_REQUEST":
       return { ...state, isRequestInProgress: true, requestStep: "start" };
